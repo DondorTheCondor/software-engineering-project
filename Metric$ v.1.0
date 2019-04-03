@@ -1,0 +1,28 @@
+create database metrics$;
+
+CREATE TABLE IF NOT EXISTS metric$.project
+(
+    project_id INT AUTO_INCREMENT,
+    project_name VARCHAR(255) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    created_date DATE,
+    project_manager VARCHAR(30),
+    description TEXT,
+    PRIMARY KEY (project_id)
+    FOREIGN KEY(project_manager) REFERENCES sys_user()
+);
+
+
+CREATE TABLE IF NOT EXISTS metric$.sys_user
+(
+  user_id INT unique NOT NULL,
+  first_name VARCHAR(20),
+  middle_name VARCHAR(20),
+  last_name VARCHAR(20),
+  full_name VARCHATR(60),
+  active boolean,
+  job_title VARCHAR(40),
+  project_manager boolean,
+  estimator boolean,
+);
